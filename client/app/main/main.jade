@@ -2,24 +2,105 @@ div(ng-include='"components/navbar/navbar.html"')
 
 header#banner.hero-unit
   .container
-    h1 'Allo, 'Allo!
-    p.lead Kick-start your next web app with Angular Fullstack
-    img(src='assets/images/yeoman.png', alt='I\'m Yeoman')
+    h1 Labouchère
+    p.lead Labouchère System
+
+.container
+  .row
+    .col-sm-12
+      h1 Set Stakes
+
+.container
+  .row
+    .col-sm-1.col-sm-offset-1
+      select(class="form-control" ng-model="stake[0]" ng-options="option.name for option in stakeOptions" ng-init="stake[0] = stake[0] || stakeOptions[0]")
+      h4 Low
+    .col-sm-1
+      select(class="form-control" ng-model="stake[1]" ng-options="option.name for option in stakeOptions" ng-init="stake[1] = stake[1] || stakeOptions[0]")
+    .col-sm-1
+      select(class="form-control" ng-model="stake[2]" ng-options="option.name for option in stakeOptions" ng-init="stake[2] = stake[2] || stakeOptions[0]")
+    .col-sm-1
+      select(class="form-control" ng-model="stake[3]" ng-options="option.name for option in stakeOptions" ng-init="stake[3] = stake[3] || stakeOptions[0]")
+    .col-sm-1
+      select(class="form-control" ng-model="stake[4]" ng-options="option.name for option in stakeOptions" ng-init="stake[4] = stake[4] || stakeOptions[0]")
+    .col-sm-1
+      select(class="form-control" ng-model="stake[5]" ng-options="option.name for option in stakeOptions" ng-init="stake[5] = stake[5] || stakeOptions[0]")
+    .col-sm-1
+      select(class="form-control" ng-model="stake[6]" ng-options="option.name for option in stakeOptions" ng-init="stake[6] = stake[6] || stakeOptions[0]")
+    .col-sm-1
+      select(class="form-control" ng-model="stake[7]" ng-options="option.name for option in stakeOptions" ng-init="stake[7] = stake[7] || stakeOptions[0]")
+    .col-sm-1
+      select(class="form-control" ng-model="stake[8]" ng-options="option.name for option in stakeOptions" ng-init="stake[8] = stake[8] || stakeOptions[0]")
+    .col-sm-1
+      select(class="form-control" ng-model="stake[9]" ng-options="option.name for option in stakeOptions" ng-init="stake[9] = stake[9] || stakeOptions[0]")
+      h4 High
+    .col-sm-1
+      input(type="button" value="Set Default" class="btn btn-primary" ng-click="setStakes()")
 
 .container
   .row
     .col-lg-12
-      h1.page-header Features:
-      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='thing in awesomeThings')
-        li
-          a(href='#', tooltip='{{thing.info}}')
-            | {{thing.name}}
+      h1 Stakes
+
+.container
+  .row
+    .col-sm-1.col-sm-offset-1
+      {{ stake[0].value }}
+      h4 Low
+    .col-sm-1
+      {{ stake[1].value }}
+    .col-sm-1
+      {{ stake[2].value }}
+    .col-sm-1
+      {{ stake[3].value }}
+    .col-sm-1
+      {{ stake[4].value }}
+    .col-sm-1
+      {{ stake[5].value }}
+    .col-sm-1
+      {{ stake[6].value }}
+    .col-sm-1
+      {{ stake[7].value }}
+    .col-sm-1
+      {{ stake[8].value }}
+    .col-sm-1
+      {{ stake[9].value }}
+      h4 High
+
+.container
+  .row
+    .col-sm-12
+      hr
+      h1 Options
+      form(name="optionsForm")
+        .row
+          .col-sm-2.col-sm-offset-3
+            h4 Iterations:
+            input(type="number" name="iterations" ng-model="iterations" class="form-control" min="0" max="1000" required)
+          .col-sm-2
+            h4 Limit count:
+            input(type="number" name="limit" ng-model="limit" class="form-control" min="0" max="100" required)
+          .col-sm-2
+            h4 Funds:
+            input(type="number" name="funds" ng-model="funds" class="form-control" min="0" max="10000" required)
+        .row
+          .col-sm-12
+            div(class="alert alert-danger" role="alert" ng-show="optionsForm.iterations.$error.number") Invalid Interation!
+            div(class="alert alert-danger" role="alert" ng-show="optionsForm.iterations.$error.required") Interation value required!
+
+            div(class="alert alert-danger" role="alert" ng-show="optionsForm.limit.$error.number") Invalid limit count!
+            div(class="alert alert-danger" role="alert" ng-show="optionsForm.limit.$error.required") Limit count required!
+
+            div(class="alert alert-danger" role="alert" ng-show="optionsForm.funds.$error.number") Invalid funds amount!
+            div(class="alert alert-danger" role="alert" ng-show="optionsForm.funds.$error.required") Funds amount required!
+  .row
+      hr
+    .col-sm-12
+      h4 Running {{ iterations }}(s) times with a limit of {{ limit }} and funds of {{ funds }} using values {{ stake[0].value }}, {{ stake[1].value }}, {{ stake[2].value }}, {{ stake[3].value }}, {{ stake[4].value }}, {{ stake[5].value }}, {{ stake[6].value }}, {{ stake[7].value }}, {{ stake[8].value }}, {{ stake[9].value }}.
+    .col-sm-1.col-sm-offset-11
+      input(type="button" value="Start!" class="btn btn-primary" ng-click="start(iterations, stake)")
 
 footer.footer
   .container
-    p
-      | Angular Fullstack v2.0.13
-      = ' | '
-      a(href='https://twitter.com/tyhenkel') @tyhenkel
-      = ' | '
-      a(href='https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open') Issues
+    p 
+      a(href="https://stephen-ireland.com") Labouchère 2014
