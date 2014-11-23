@@ -75,4 +75,6 @@ angular.module 'labouchereApp'
       closeOnConfirm: true
       ->
         labouchere = new Labouchere($scope.limit, $scope.funds)
-        $scope.results = labouchere.run(iterations, stake)
+        $scope.results = labouchere.run(iterations, _.pluck(stake, 'value'))
+        console.table $scope.results
+        window.results = $scope.results

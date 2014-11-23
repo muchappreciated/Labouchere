@@ -8,16 +8,15 @@ class window.Labouchere
 		_funds = funds
 
 	run: (iterations, stake) ->
-		wins = 0
-		losses = 0
-		for i in [0..iterations] by 1
-			if calc(stake, _limit)
-				wins++
-			else
-				losses++
-
+		for i in [1..iterations] by 1
+			calc(stake, _limit)
 
 	calc = (stake, limit) ->
+		result =
+			stakes: []
+			wins: 0
+			losses: 0
+
 		stakes = stake.slice(0) # clone array to work with
 
 		for i in [0..limit] by 1
@@ -27,10 +26,14 @@ class window.Labouchere
 			currentStake = _.first(stakes) + _.last(stakes)
 
 			# even wins
-			if (table %% 2) == 0
+			if (table % 2) == 0
 				#win - delete first and last - continue
 				stakes.splice(0, 1)
-
+				result.wins++
 			else
 				#loss - add summed stake to last - continue
-				
+				stakes.push(currentStake)
+				result.losses++
+
+		result.stakes = stakes
+		result

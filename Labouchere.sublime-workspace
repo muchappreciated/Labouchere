@@ -1,0 +1,244 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sta",
+				"stakes"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "class window.Labouchere	\n\n	_limit = 16\n	_funds = 1000\n\n	constructor: (limit, funds) ->\n		_limit = limit\n		_funds = funds\n\n	run: (iterations, stake) ->\n		wins = 0\n		losses = 0\n		for i in [0..iterations] by 1\n			if calc(stake, _limit)\n				wins++\n			else\n				losses++\n\n\n	calc = (stake, limit) ->\n		stakes = stake.slice(0) # clone array to work with\n\n		for i in [0..limit] by 1\n			if stakes.length <= 1\n				return\n			table = _.random(1, 37)\n			currentStake = _.first(stakes) + _.last(stakes)\n\n			# even wins\n			if (table %% 2) == 0\n				#win - delete first and last - continue\n				stakes.splice(0, 1)\n\n			else\n				#loss - add summed stake to last - continue\n				stakes.push(currentStake)\n				",
+			"file": "client/components/Labouchere/Labouchere.coffee",
+			"file_size": 692,
+			"file_write_time": 130587284495026719,
+			"settings":
+			{
+				"buffer_size": 687,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 81.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"packin",
+				"Package Control: Install Package"
+			],
+			[
+				"pack in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Dropbox/Projects/Labouchere/client",
+		"/D/Dropbox/Projects/Labouchere/client/app",
+		"/D/Dropbox/Projects/Labouchere/client/app/main",
+		"/D/Dropbox/Projects/Labouchere/client/components",
+		"/D/Dropbox/Projects/Labouchere/client/components/Labouchere",
+		"/D/Dropbox/Projects/Labouchere/server/config",
+		"/D/Dropbox/Projects/Labouchere/server/views"
+	],
+	"file_history":
+	[
+		"/D/Dropbox/Projects/Labouchere/package.json",
+		"/D/Dropbox/Projects/Labouchere/.gitignore",
+		"/D/Dropbox/Projects/stephen-ireland.com/.gitignore",
+		"/D/Dropbox/Projects/stephen-ireland.com/package.json",
+		"/D/Dropbox/Projects/stephen-ireland.com/node_modules/connect/package.json",
+		"/D/Dropbox/Projects/stephen-ireland.com/sftp-config.json",
+		"/C/Users/Steve/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/D/Dropbox/Projects/Labouchere/Labouchere.sublime-workspace",
+		"/D/Dropbox/Projects/Labouchere/Labouchere.sublime-project"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "client/components/Labouchere/Labouchere.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 687,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								292,
+								292
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "Labouchere.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 215.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
