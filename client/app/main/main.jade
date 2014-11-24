@@ -100,6 +100,41 @@ header#banner.hero-unit
     .col-sm-1.col-sm-offset-11
       input(type="button" value="Start!" class="btn btn-primary" ng-click="start(iterations, stake)")
 
+
+.container(ng-show="results.length")
+  .row
+    .col-sm-12
+      hr
+      h1 Results
+  .row
+    .col-sm-12
+      table(class="table table-striped")
+        thead
+          tr
+            th Total Wins
+            th Total Losses
+            th Average Funds
+        tbody
+          tr
+            td {{ totalWins(results) }}
+            td {{ totalLosses(results) }}
+            td {{ averageFunds(results) }}
+  .row
+    .col-sm-12
+      table(class="table table-striped")
+        thead
+          tr
+            th Wins
+            th Losses
+            th Funds
+        tbody
+          tr(ng-repeat="item in results" ng-class="{ success: item.funds > funds}")
+            td {{ item.wins }}
+            td {{ item.losses }}
+            td {{ item.funds }}
+
+
+
 footer.footer
   .container
     p 
