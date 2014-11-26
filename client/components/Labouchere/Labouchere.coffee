@@ -18,7 +18,7 @@ class window.Labouchere
 			losses: 0
 			funds: funds
 
-		stakes = stake.slice(0) # clone array to work with
+		stakes = stake.slice 0 # clone array to work with
 
 		for i in [0..limit] by 1
 			if stakes.length <= 1 or funds <= 0

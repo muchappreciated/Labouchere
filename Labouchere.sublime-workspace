@@ -4,21 +4,86 @@
 		"selected_items":
 		[
 			[
-				"sta",
+				"resul",
+				"results"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"resu",
+				"result"
+			],
+			[
+				"res",
+				"results"
+			],
+			[
+				"for",
+				"forin	Array Comprehension"
+			],
+			[
+				"_",
+				"_funds"
+			],
+			[
+				"st",
 				"stakes"
+			],
+			[
+				"loss",
+				"losses"
+			],
+			[
+				"wi",
+				"wins"
+			],
+			[
+				"sta",
+				"stake"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"contents": "class window.Labouchere	\n\n	_limit = 16\n	_funds = 1000\n\n	constructor: (limit, funds) ->\n		_limit = limit\n		_funds = funds\n\n	run: (iterations, stake) ->\n		wins = 0\n		losses = 0\n		for i in [0..iterations] by 1\n			if calc(stake, _limit)\n				wins++\n			else\n				losses++\n\n\n	calc = (stake, limit) ->\n		stakes = stake.slice(0) # clone array to work with\n\n		for i in [0..limit] by 1\n			if stakes.length <= 1\n				return\n			table = _.random(1, 37)\n			currentStake = _.first(stakes) + _.last(stakes)\n\n			# even wins\n			if (table %% 2) == 0\n				#win - delete first and last - continue\n				stakes.splice(0, 1)\n\n			else\n				#loss - add summed stake to last - continue\n				stakes.push(currentStake)\n				",
 			"file": "client/components/Labouchere/Labouchere.coffee",
-			"file_size": 692,
-			"file_write_time": 130587284495026719,
 			"settings":
 			{
-				"buffer_size": 687,
+				"buffer_size": 903,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "client/app/main/main.controller.coffee",
+			"settings":
+			{
+				"buffer_size": 1930,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/app/main/main.jade",
+			"settings":
+			{
+				"buffer_size": 5314,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/c/users/steve/appdata/local/temp/main.controller.js",
+			"settings":
+			{
+				"buffer_size": 2596,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/c/users/steve/appdata/local/temp/Labouchere.js",
+			"settings":
+			{
+				"buffer_size": 1265,
 				"line_ending": "Windows"
 			}
 		}
@@ -26,9 +91,37 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 81.0,
+		"height": 58.0,
 		"selected_items":
 		[
+			[
+				"coff w",
+				"Coffee: Toggle Watch Mode"
+			],
+			[
+				"coff wa",
+				"Coffee: Toggle Watch Mode"
+			],
+			[
+				"co",
+				"Coffee: Toggle Watch Mode"
+			],
+			[
+				"coff",
+				"Coffee: Toggle Watch Mode"
+			],
+			[
+				"coffe",
+				"Coffee: Display JavaScript"
+			],
+			[
+				"coffwa",
+				"Coffee: Toggle Watch Mode"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -61,6 +154,7 @@
 		"height": 126.0,
 		"history":
 		[
+			"where coffee.cmd",
 			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
 		]
 	},
@@ -75,19 +169,19 @@
 	},
 	"expanded_folders":
 	[
+		"/D/Dropbox/Projects/Labouchere",
 		"/D/Dropbox/Projects/Labouchere/client",
 		"/D/Dropbox/Projects/Labouchere/client/app",
 		"/D/Dropbox/Projects/Labouchere/client/app/main",
 		"/D/Dropbox/Projects/Labouchere/client/components",
-		"/D/Dropbox/Projects/Labouchere/client/components/Labouchere",
-		"/D/Dropbox/Projects/Labouchere/server/config",
-		"/D/Dropbox/Projects/Labouchere/server/views"
+		"/D/Dropbox/Projects/Labouchere/client/components/Labouchere"
 	],
 	"file_history":
 	[
+		"/D/Dropbox/Projects/Labouchere/client/app/main/main.coffee",
 		"/D/Dropbox/Projects/Labouchere/package.json",
-		"/D/Dropbox/Projects/Labouchere/.gitignore",
 		"/D/Dropbox/Projects/stephen-ireland.com/.gitignore",
+		"/D/Dropbox/Projects/Labouchere/.gitignore",
 		"/D/Dropbox/Projects/stephen-ireland.com/package.json",
 		"/D/Dropbox/Projects/stephen-ireland.com/node_modules/connect/package.json",
 		"/D/Dropbox/Projects/stephen-ireland.com/sftp-config.json",
@@ -97,7 +191,7 @@
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -111,6 +205,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"td"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -128,7 +223,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -137,15 +232,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 687,
+						"buffer_size": 903,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								292,
-								292
+								432,
+								432
 							]
 						],
 						"settings":
@@ -157,7 +252,133 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/app/main/main.controller.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1930,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1791,
+								1791
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 972.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "client/app/main/main.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5314,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5151,
+								5151
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1782.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "/c/users/steve/appdata/local/temp/main.controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2596,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								645,
+								645
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1026.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/c/users/steve/appdata/local/temp/Labouchere.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								912,
+								912
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -165,7 +386,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -180,11 +401,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.490615835777,
 			1.0
 		],
 		"rows":
@@ -201,7 +429,7 @@
 	"project": "Labouchere.sublime-project",
 	"replace":
 	{
-		"height": 0.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":

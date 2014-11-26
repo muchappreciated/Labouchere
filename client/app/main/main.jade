@@ -102,12 +102,22 @@ header#banner.hero-unit
 
 
 .container(ng-show="results.length")
+  .col-sm-12
+    hr
+    h1 Results
   .row
-    .col-sm-12
-      hr
-      h1 Results
-  .row
-    .col-sm-12
+    ul(class="nav nav-tabs")
+      li(ng-class="{ active: activeTab == 1 }")
+        a(href="#" ng-click="activeTab = 1") Review Results
+      li(ng-class="{ active: activeTab == 2 }")
+        a(href="#" ng-click="activeTab = 2") All Results
+  .row(class="tab-content")
+    .col-sm-12(class="tab-pane" ng-class="{ active: activeTab == 1 }")
+      rickshaw(
+        rickshaw-options="graphOptions" 
+        rickshaw-features="graphFeatures" 
+        rickshaw-series="graphSeries")
+
       table(class="table table-striped")
         thead
           tr
@@ -119,8 +129,7 @@ header#banner.hero-unit
             td {{ totalWins(results) }}
             td {{ totalLosses(results) }}
             td {{ averageFunds(results) }}
-  .row
-    .col-sm-12
+    .col-sm-12(class="tab-pane" ng-class="{ active: activeTab == 2 }")
       table(class="table table-striped")
         thead
           tr

@@ -2,54 +2,21 @@
 
 angular.module 'labouchereApp'
 .controller 'MainCtrl', ($scope, $http) ->
-	# Options
-	$scope.iterations = 100 
-	$scope.limit = 16
-	$scope.funds = 1000
 
+	# Options
+	$scope.iterations = Common.Iterations
+	$scope.limit = Common.Limit
+	$scope.funds = Common.Funds
+
+	$scope.activeTab = 1
 	$scope.stake = []
 	$scope.results = {}
-	$scope.stakeOptions = 
-		[{
-			name: '1'
-			value: 1
-		},
-		{
-			name: '2'
-			value: 2
-		},
-		{
-			name: '3'
-			value: 3
-		},
-		{
-			name: '4'
-			value: 4
-		},
-		{
-			name: '5'
-			value: 5
-		},
-		{
-			name: '6'
-			value: 6
-		},
-		{
-			name: '7'
-			value: 7
-		},
-		{
-			name: '8'
-			value: 8
-		},
-		{
-			name: '9'
-			value: 9
-		},
-		{
-			name: '10'
-			value: 10
-		}]
+
+	$scope.stakeOptions = Common.StakeOptions
+
+	$scope.graphSeries = {}
+	$scope.graphOptions = Common.Graph.Options
+	$scope.graphFeatures = Common.Graph.Features
 
 	$scope.setStakes = () ->
 		$scope.stake[0] = $scope.stakeOptions[0]
@@ -76,7 +43,7 @@ angular.module 'labouchereApp'
 			->
 				labouchere = new Labouchere($scope.limit, $scope.funds)
 				$scope.results = labouchere.run(iterations, _.pluck(stake, 'value'))
-				window.output = $scope.results
+				Common.Graph.Build($scope.results)
 				$scope.$apply()
 
 	$scope.totalWins = (results) ->
