@@ -4,7 +4,8 @@ angular.module 'labouchereApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'highcharts-ng'
 ]
 .config ($routeProvider, $locationProvider) ->
   $routeProvider

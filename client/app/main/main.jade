@@ -113,10 +113,9 @@ header#banner.hero-unit
         a(href="#" ng-click="activeTab = 2") All Results
   .row(class="tab-content")
     .col-sm-12(class="tab-pane" ng-class="{ active: activeTab == 1 }")
-      rickshaw(
-        rickshaw-options="graphOptions" 
-        rickshaw-features="graphFeatures" 
-        rickshaw-series="graphSeries")
+      highchart(
+        id="chart1" 
+        config="graphConfig")
 
       table(class="table table-striped")
         thead

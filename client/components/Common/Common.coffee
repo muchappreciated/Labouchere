@@ -45,21 +45,33 @@ class window.Common
 		}]
 
 	class @Graph
-		@Build = (results) ->
-			[name: 'Series 1',
-            color: 'steelblue',
-            data: [{x: 0, y: 23}, {x: 1, y: 15}, {x: 2, y: 79}, {x: 3, y: 31}, {x: 4, y: 60}]
-        	]
+		@Config:
+			options:
+				chart:
+					type: 'line'
 
-		@Options = {
-			renderer: 'line'
-		}
+				tooltip:
+					style:
+						padding: 10
+						fontWeight: 'bold'
 
-		@Features = {
-			hover: {
-				xFormatter: (x) ->
-					't=' + x
-				yFormatter: (y) ->
-					'$' + y
+			title: 
+				text: 'Results'
+
+			xAxis:
+				title:
+					text: 'xAxis'
+
+			yAxis:
+				title:
+					text: 'yAxis'
+
+			series:[{
+				name: 'Wins'
+				data: []
 			}
-		}
+			{
+				name: 'Losses'
+				data: []	
+			}
+			]

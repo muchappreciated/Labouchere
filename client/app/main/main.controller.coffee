@@ -14,9 +14,7 @@ angular.module 'labouchereApp'
 
 	$scope.stakeOptions = Common.StakeOptions
 
-	$scope.graphSeries = {}
-	$scope.graphOptions = Common.Graph.Options
-	$scope.graphFeatures = Common.Graph.Features
+	$scope.graphConfig = Common.Graph.Config
 
 	$scope.setStakes = () ->
 		$scope.stake[0] = $scope.stakeOptions[0]
@@ -42,8 +40,20 @@ angular.module 'labouchereApp'
 			closeOnConfirm: true
 			->
 				labouchere = new Labouchere($scope.limit, $scope.funds)
-				$scope.results = labouchere.run(iterations, _.pluck(stake, 'value'))
-				Common.Graph.Build($scope.results)
+				results = labouchere.run(iterations, _.pluck(stake, 'value'))
+
+				$scope.results = results
+				window.output = results
+
+				# Wins
+				$scope.graphConfig.series[0].data = _.pluck(results, 'wins')
+
+				# Losses
+				$scope.graphConfig.series[1].data = _.pluck(results, 'losses')
+
+				# Funds
+				#$scope.graphConfig.series[2].data = _.pluck(results, 'funds')
+
 				$scope.$apply()
 
 	$scope.totalWins = (results) ->
