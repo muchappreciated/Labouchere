@@ -63,37 +63,23 @@
 			"file": "client/app/main/main.controller.coffee",
 			"settings":
 			{
-				"buffer_size": 1781,
+				"buffer_size": 1959,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Building and installing Frets on Fire\n-------------------------------------\n\nRunning the game\n----------------\n\nFirst, the following supporting Python libraries should be installed.\n\n	- Python 2.4 or later\n	- PyGame\n	- PyOpenGL and a video card with recent OpenGL drivers\n	- Python Imaging Library\n	- numpy\n	- Optional: psyco specializing compiler\n\nAfter this, the game can be started by running the src/FretsOnFire.py file. For\nexample, in Linux and Mac OS X this can be done from the terminal with the\nfollowing commands:\n\n	$ cd src\n	$ python FretsOnFire.py\n\nUpdating translations\n---------------------\n\nFirst, make sure you have installed the gettext-dev or equivalent package that\nprovides the msgfmt tool. Then, run the following command:\n\n        $ make translations\n\nUpdating graphics files\n-----------------------\n\nFrets on Fire requires that all graphic files be provided in the PNG format. \nIf you have changed any of the source SVG files, first make sure that Inkscape\nis installed. Then, run the following command:\n\n        $ make graphics\n\nMaking an installation package\n------------------------------\n\nA redistributable installation package for the game can be created as follows.\n\nFor Windows:\n\n	1. Install Nullsoft's NSIS installation system.\n           Note: Frets on Fire assumes that the NSIS tool can be found at \n           c:/Program Files/NSIS/makeNSIS.exe. This can be overridden by \n           passing the parameter MAKENSIS=<path to makeNSIS.exe> to make in\n           the following step.\n\n        2. Install py2exe.\n\n	3. Run the following command\n\n		$ make dist\n\n        The installer will be created in the dist folder.\n\nFor Mac OS X:\n\n	1. Install py2app.\n\n	2. Run the following command\n\n		$ make dist\n\n        The installation binary will be created in the dist/mac folder.\n\nAdditionally, a generic source distribution package can be created as follows.\n\n        1. Run\n\n                $ make sdist\n\n        The package will be created in the dist folder.\n\n\n",
-			"file": "/C/Users/Steve/Desktop/Frets on Fire/install.txt",
-			"file_size": -1,
-			"file_write_time": -1,
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 1988,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Traceback (most recent call last):\n  File \"GameEngine.pyo\", line 355, in run\n  File \"GameEngine.pyo\", line 347, in main\n  File \"View.pyo\", line 183, in render\n  File \"Menu.pyo\", line 207, in render\n  File \"Font.pyo\", line 179, in render\n  File \"Font.pyo\", line 112, in _renderString\n  File \"Font.pyo\", line 227, in getGlyph\n  File \"Font.pyo\", line 189, in _allocateGlyphTexture\n  File \"Texture.pyo\", line 358, in __init__\n  File \"Texture.pyo\", line 312, in loadEmpty\nMemoryError\n",
-			"file": "/C/Users/Steve/Desktop/Frets on Fire/FretsOnFire.exe.log",
-			"file_size": -1,
-			"file_write_time": -1,
-			"settings":
-			{
-				"buffer_size": 479,
-				"line_ending": "Windows"
+				"buffer_size": 155,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "client/app/main/main.jade",
 			"settings":
 			{
-				"buffer_size": 5816,
+				"buffer_size": 5745,
 				"line_ending": "Unix"
 			}
 		},
@@ -101,31 +87,34 @@
 			"file": "client/components/Common/Common.coffee",
 			"settings":
 			{
-				"buffer_size": 774,
+				"buffer_size": 773,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": ".tmp/components/Labouchere/Labouchere.js",
+			"file": "client/app/app.coffee",
 			"settings":
 			{
-				"buffer_size": 1398,
+				"buffer_size": 261,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": ".tmp/components/Common/Common.js",
+			"file": "/c/users/steve/appdata/local/temp/Common.js",
 			"settings":
 			{
-				"buffer_size": 1652,
-				"line_ending": "Unix"
+				"buffer_size": 1283,
+				"line_ending": "Windows"
 			}
 		},
 		{
+			"contents": "(function() {\n  'use strict';\n  angular.module('labouchereApp').config(function($routeProvider) {\n    return $routeProvider.when('/', {\n      templateUrl: 'app/main/main.html',\n      controller: 'MainCtrl'\n    });\n  });\n\n  'use strict';\n\n  angular.module('labouchereApp', ['highcharts-ng']).controller('MainCtrl', function($scope, $http) {\n    $scope.iterations = Common.Iterations;\n    $scope.limit = Common.Limit;\n    $scope.funds = Common.Funds;\n    $scope.activeTab = 1;\n    $scope.stake = [];\n    $scope.results = {};\n    $scope.stakeOptions = Common.StakeOptions;\n    $scope.graphSeries = {};\n    $scope.graphOptions = Common.Graph.Options;\n    $scope.graphFeatures = Common.Graph.Features;\n    $scope.setStakes = function() {\n      $scope.stake[0] = $scope.stakeOptions[0];\n      $scope.stake[1] = $scope.stakeOptions[0];\n      $scope.stake[2] = $scope.stakeOptions[0];\n      $scope.stake[3] = $scope.stakeOptions[0];\n      $scope.stake[4] = $scope.stakeOptions[0];\n      $scope.stake[5] = $scope.stakeOptions[0];\n      $scope.stake[6] = $scope.stakeOptions[0];\n      $scope.stake[7] = $scope.stakeOptions[1];\n      $scope.stake[8] = $scope.stakeOptions[2];\n      $scope.stake[9] = $scope.stakeOptions[3];\n    };\n    $scope.start = function(iterations, stake) {\n      return sweetAlert({\n        title: \"Start processing?\",\n        text: \"This might take a few minutes, depending on interation number!\",\n        type: \"warning\",\n        showCancelButton: true,\n        confirmButtonColor: \"#5cb85c\",\n        confirmButtonText: \"Start!\",\n        closeOnConfirm: true\n      }, function() {\n        var labouchere;\n        labouchere = new Labouchere($scope.limit, $scope.funds);\n        $scope.results = labouchere.run(iterations, _.pluck(stake, 'value'));\n        Common.Graph.Build($scope.results);\n        return $scope.$apply();\n      });\n    };\n    $scope.totalWins = function(results) {\n      var result, total, _i, _len;\n      total = 0;\n      for (_i = 0, _len = results.length; _i < _len; _i++) {\n        result = results[_i];\n        if (result.wins > result.losses) {\n          total++;\n        }\n      }\n      return total;\n    };\n    $scope.totalLosses = function(results) {\n      var result, total, _i, _len;\n      total = 0;\n      for (_i = 0, _len = results.length; _i < _len; _i++) {\n        result = results[_i];\n        if (result.wins < result.losses) {\n          total++;\n        }\n      }\n      return total;\n    };\n    return $scope.averageFunds = function(results) {\n      var result, total, _i, _len;\n      total = 0;\n      for (_i = 0, _len = results.length; _i < _len; _i++) {\n        result = results[_i];\n        total += result.funds;\n      }\n      return total / results.length;\n    };\n  });\n\n}).call(this);\n\n//# sourceMappingURL=main.js.map\n",
 			"file": ".tmp/app/main/main.js",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 2759,
+				"buffer_size": 2778,
 				"line_ending": "Unix"
 			}
 		}
@@ -133,9 +122,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 288.0,
+		"height": 58.0,
 		"selected_items":
 		[
+			[
+				"cofeewa",
+				"Coffee: Toggle Watch Mode"
+			],
 			[
 				"coffeewa",
 				"Coffee: Toggle Watch Mode"
@@ -216,12 +209,30 @@
 	"expanded_folders":
 	[
 		"/D/Dropbox/Projects/Labouchere",
-		"/D/Dropbox/Projects/Labouchere/.tmp",
-		"/D/Dropbox/Projects/Labouchere/.tmp/components",
-		"/D/Dropbox/Projects/Labouchere/.tmp/components/Common"
+		"/D/Dropbox/Projects/Labouchere/client/app",
+		"/D/Dropbox/Projects/Labouchere/client/app/main",
+		"/D/Dropbox/Projects/Labouchere/client/assets",
+		"/D/Dropbox/Projects/Labouchere/client/bower_components/highcharts",
+		"/D/Dropbox/Projects/Labouchere/client/bower_components/highcharts-ng/src",
+		"/D/Dropbox/Projects/Labouchere/client/components/Common",
+		"/D/Dropbox/Projects/Labouchere/client/components/Labouchere",
+		"/D/Dropbox/Projects/Labouchere/client/components/navbar",
+		"/D/Dropbox/Projects/Labouchere/e2e/main",
+		"/D/Dropbox/Projects/Labouchere/server/api",
+		"/D/Dropbox/Projects/Labouchere/server/components",
+		"/D/Dropbox/Projects/Labouchere/server/components/errors",
+		"/D/Dropbox/Projects/Labouchere/server/config",
+		"/D/Dropbox/Projects/Labouchere/server/config/environment",
+		"/D/Dropbox/Projects/Labouchere/server/views"
 	],
 	"file_history":
 	[
+		"/D/Dropbox/Projects/Labouchere/client/index.html",
+		"/D/Dropbox/Projects/Labouchere/bower.json",
+		"/D/Dropbox/Projects/Labouchere/.tmp/components/Labouchere/Labouchere.js",
+		"/D/Dropbox/Projects/Labouchere/.tmp/components/Common/Common.js",
+		"/D/Dropbox/Projects/Labouchere/.tmp/app/main/main.js",
+		"/C/Users/Steve/Desktop/Frets on Fire/install.txt",
 		"/C/Users/Steve/Desktop/Frets on Fire/FretsOnFire.exe.log",
 		"/c/users/steve/appdata/local/temp/Labouchere.js",
 		"/c/users/steve/appdata/local/temp/main.controller.js",
@@ -239,7 +250,7 @@
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -253,6 +264,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"highcharts",
+			">\n",
 			"labo",
 			"td"
 		],
@@ -272,7 +285,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -288,8 +301,8 @@
 						"selection":
 						[
 							[
-								284,
-								284
+								297,
+								297
 							]
 						],
 						"settings":
@@ -301,7 +314,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -310,15 +323,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1781,
+						"buffer_size": 1959,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								329,
-								329
+								1474,
+								1474
 							]
 						],
 						"settings":
@@ -328,62 +341,32 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/Steve/Desktop/Frets on Fire/install.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1988,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 756.0,
+						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/C/Users/Steve/Desktop/Frets on Fire/FretsOnFire.exe.log",
+					"buffer": 2,
+					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 479,
+						"buffer_size": 155,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								37,
-								76
+								126,
+								126
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -393,20 +376,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "client/app/main/main.jade",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5816,
+						"buffer_size": 5745,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5018,
-								5018
+								4945,
+								4945
 							]
 						],
 						"settings":
@@ -416,27 +399,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1728.0,
+						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "client/components/Common/Common.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 774,
+						"buffer_size": 773,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								622,
-								622
+								767,
+								767
 							]
 						],
 						"settings":
@@ -444,10 +427,38 @@
 							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 216.0,
+						"translation.y": 642.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "client/app/app.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 261,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								125,
+								125
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -458,19 +469,19 @@
 			[
 				{
 					"buffer": 6,
-					"file": ".tmp/components/Labouchere/Labouchere.js",
+					"file": "/c/users/steve/appdata/local/temp/Common.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1398,
+						"buffer_size": 1283,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								747,
-								747
+								942,
+								942
 							]
 						],
 						"settings":
@@ -479,8 +490,8 @@
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": -0.0,
+						"translation.y": 648.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
@@ -488,49 +499,19 @@
 				},
 				{
 					"buffer": 7,
-					"file": ".tmp/components/Common/Common.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1652,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								866,
-								866
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 54.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
 					"file": ".tmp/app/main/main.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2759,
+						"buffer_size": 2778,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1897,
+								1897
 							]
 						],
 						"settings":
@@ -540,10 +521,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 378.0,
+						"translation.y": 324.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
