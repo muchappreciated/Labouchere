@@ -663,6 +663,10 @@ module.exports = function (grunt) {
     grunt.task.run(['serve']);
   });
 
+  grunt.registerTask('heroku', function () {
+    grunt.task.run(['serve']);
+  });
+
   grunt.registerTask('test', function(target) {
     if (target === 'server') {
       return grunt.task.run([
